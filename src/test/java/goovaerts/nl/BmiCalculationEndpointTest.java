@@ -29,4 +29,10 @@ class BmiCalculationEndpointTest {
         BmiResponse response = endpoint.calculate(request);
         Assertions.assertEquals(22d, response.getValue());
     }
+
+    // TODO reject age < 2
+    // TODO reject weight < 1
+    // TODO reject length < 1
+
+    // TODO use Spring framework for bean wiring, REST interface and validation?
 }
