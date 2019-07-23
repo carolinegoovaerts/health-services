@@ -6,7 +6,10 @@ import org.junit.jupiter.api.Test;
 class BmiCalculationEndpointTest {
 
     @Test
-    void x() {
-        Assertions.fail("not yet implemented");
+    void shouldReturnBmiResponse() {
+        BmiCalculationEndpoint endpoint = new BmiCalculationEndpoint();
+        BmiResponse response = endpoint.calculate(new Object());
+
+        Assertions.assertNotNull(response);
     }
 }
