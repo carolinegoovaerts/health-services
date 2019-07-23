@@ -2,7 +2,8 @@ package goovaerts.nl;
 
 class BmiCalculationEndpoint {
 
-    BmiResponse calculate(Object o) {
-        return new BmiResponse();
+    BmiResponse calculate(BmiRequest request) {
+        double value = request.getWeight() / (request.getLength() * request.getLength());
+        return new BmiResponse(value);
     }
 }

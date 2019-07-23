@@ -8,6 +8,10 @@ class BmiCalculationEndpointTest {
 
     private BmiCalculationEndpoint endpoint;
 
+    private static BmiRequest bmiRequestForAgeLengthWidth(int age, double length, double weight) {
+        return new BmiRequest(age, length, weight);
+    }
+
     @BeforeEach
     void setUp() {
         endpoint = new BmiCalculationEndpoint();
@@ -15,10 +19,14 @@ class BmiCalculationEndpointTest {
 
     @Test
     void shouldReturnBmiResponseForBmiRequest() {
-        int age = 45;
-        int length = 175;
-        int weight = 65;
+        BmiRequest request = bmiRequestForAgeLengthWidth(2, 1, 1);
+        Assertions.assertNotNull(endpoint.calculate(request));
+    }
 
-        Assertions.assertNotNull(endpoint.calculate(new BmiRequest(age, length, weight)));
+    @Test
+    void shouldReturnExpectedBmiResponse() {
+        BmiRequest request = bmiRequestForAgeLengthWidth(45, 1.75, 67.375);
+        BmiResponse response = endpoint.calculate(request);
+        Assertions.assertEquals(22d, response.getValue());
     }
 }
