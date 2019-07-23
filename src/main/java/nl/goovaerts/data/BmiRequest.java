@@ -1,22 +1,26 @@
-package goovaerts.nl;
+package nl.goovaerts.data;
 
-class BmiRequest {
+public class BmiRequest {
 
     private final int age;
     private final double length;
     private final double weight;
 
-    BmiRequest(int age, double length, double weight) {
+    public BmiRequest(int age, double length, double weight) {
         this.age = age;
         this.length = length;
         this.weight = weight;
     }
 
-    double getLength() {
+    public double getLength() {
         return length;
     }
 
-    double getWeight() {
+    public double getWeight() {
         return weight;
+    }
+
+    public int getAge() {
+        return age;
     }
 }
