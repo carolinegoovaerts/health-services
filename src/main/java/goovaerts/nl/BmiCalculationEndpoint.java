@@ -2,8 +2,11 @@ package goovaerts.nl;
 
 class BmiCalculationEndpoint {
 
+    private static double determineBmiFor(BmiRequest request) {
+        return request.getWeight() / (request.getLength() * request.getLength());
+    }
+
     BmiResponse calculate(BmiRequest request) {
-        double value = request.getWeight() / (request.getLength() * request.getLength());
-        return new BmiResponse(value);
+        return new BmiResponse(determineBmiFor(request));
     }
 }
