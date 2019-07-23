@@ -1,0 +1,14 @@
+# IntelliJ
+.idea
+*.iml
+
+# Vi
+*~
+*.swp
+
+# OSX
+.DS_Store
+._*
+
+# Maven
+target/
