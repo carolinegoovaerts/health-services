@@ -15,6 +15,10 @@ class BmiCalculationEndpointTest {
 
     @Test
     void shouldReturnBmiResponseForBmiRequest() {
-        Assertions.assertNotNull(endpoint.calculate(new BmiRequest()));
+        int age = 45;
+        int length = 175;
+        int weight = 65;
+
+        Assertions.assertNotNull(endpoint.calculate(new BmiRequest(age, length, weight)));
     }
 }
