@@ -5,9 +5,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class BmiRequest {
 
-    private int age;
-    private double length;
-    private double weight;
+    private final int age;
+    private final double length;
+    private final double weight;
 
     @JsonCreator
     public BmiRequest(@JsonProperty("age") int age,

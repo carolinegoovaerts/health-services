@@ -17,6 +17,7 @@
         <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
         <maven-surefire-plugin.version>2.22.1</maven-surefire-plugin.version>
         <spring-boot.version>2.1.6.RELEASE</spring-boot.version>
+        <equalsverifier.version>2.4</equalsverifier.version>
     </properties>
 
     <dependencies>
@@ -32,6 +33,12 @@
             <artifactId>junit-jupiter-engine</artifactId>
             <version>${junit.jupiter.version}</version>
             <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>nl.jqno.equalsverifier</groupId>
+            <artifactId>equalsverifier</artifactId>
+            <version>${equalsverifier.version}</version>
         </dependency>
 
         <!-- Spring framework -->

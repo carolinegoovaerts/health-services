@@ -40,5 +40,4 @@ class BmiCalculationTest {
         BmiRequest request = DataFixtures.bmiRequestForAgeLengthWeight(2, 0, 1);
         Assertions.assertThrows(IllegalArgumentException.class, () -> bmiCalculation.process(request));
     }
-
 }
