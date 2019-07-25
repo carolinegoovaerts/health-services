@@ -2,7 +2,9 @@ package nl.goovaerts.domain;
 
 import nl.goovaerts.data.BmiRequest;
 import nl.goovaerts.data.BmiResponse;
+import org.springframework.stereotype.Service;
 
+@Service
 public class DefaultBmiCalculation implements BmiCalculation {
 
     private static double determineBmiFor(BmiRequest request) {

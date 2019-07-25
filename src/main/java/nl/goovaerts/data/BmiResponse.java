@@ -9,6 +9,6 @@ public class BmiResponse {
     }
 
     public double getValue() {
-        return this.value;
+        return value;
     }
 }
