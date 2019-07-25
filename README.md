@@ -5,4 +5,4 @@ Web services for health calculation frontend.
 
 Status
 ------
-https://travis-ci.com/carolinegoovaerts/health-services.svg?branch=master
+[![Build Status](https://travis-ci.com/carolinegoovaerts/health-services.svg?branch=master)](https://travis-ci.com/carolinegoovaerts/health-services)
