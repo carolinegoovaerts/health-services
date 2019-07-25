@@ -1,13 +1,18 @@
 package nl.goovaerts.data;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class BmiRequest {
 
     private int age;
     private double length;
     private double weight;
 
-    // TODO use constructor injection with @JsonCreator
-    public BmiRequest(int age, double length, double weight) {
+    @JsonCreator
+    public BmiRequest(@JsonProperty("age") int age,
+                      @JsonProperty("length") double length,
+                      @JsonProperty("weight") double weight) {
         this.age = age;
         this.length = length;
         this.weight = weight;
@@ -17,23 +22,11 @@ public class BmiRequest {
         return age;
     }
 
-    public void setAge(int age) {
-        this.age = age;
-    }
-
     public double getLength() {
         return length;
     }
 
-    public void setLength(double length) {
-        this.length = length;
-    }
-
     public double getWeight() {
         return weight;
-    }
-
-    public void setWeight(double weight) {
-        this.weight = weight;
     }
 }
