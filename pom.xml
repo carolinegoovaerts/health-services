@@ -14,8 +14,9 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <!-- Dependency versions -->
         <junit.jupiter.version>5.5.1</junit.jupiter.version>
-        <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
+        <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
         <maven-surefire-plugin.version>3.0.0-M3</maven-surefire-plugin.version>
+        <maven-failsafe-plugin.version>3.0.0-M3</maven-failsafe-plugin.version>
         <spring-boot.version>2.1.6.RELEASE</spring-boot.version>
         <equalsverifier.version>2.4</equalsverifier.version>
     </properties>
@@ -65,16 +66,21 @@
     <build>
         <pluginManagement>
             <plugins>
+                <!-- Maven -->
                 <plugin>
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>${maven-compiler-plugin.version}</version>
                 </plugin>
-                <!-- Junit 5 requires an up-to-date version of maven-surefire-plugin -->
                 <plugin>
                     <artifactId>maven-surefire-plugin</artifactId>
                     <version>${maven-surefire-plugin.version}</version>
                 </plugin>
-                <!-- produce a bootable JAR during the package phase -->
+                <plugin>
+                    <artifactId>maven-failsafe-plugin-plugin</artifactId>
+                    <version>${maven-failsafe-plugin.version}</version>
+                </plugin>
+
+                <!-- Spring Boot -->
                 <plugin>
                     <groupId>org.springframework.boot</groupId>
                     <artifactId>spring-boot-maven-plugin</artifactId>
