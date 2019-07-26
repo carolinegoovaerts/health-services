@@ -4,6 +4,8 @@ import nl.jqno.equalsverifier.EqualsVerifier;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.math.BigDecimal;
+
 class BmiResponseTest {
 
     @Test
@@ -13,7 +15,7 @@ class BmiResponseTest {
 
     @Test
     void shouldContainBmiValue() {
-        String objectInfo = new BmiResponse(22d).toString();
+        String objectInfo = new BmiResponse(BigDecimal.valueOf(22d)).toString();
         Assertions.assertTrue(objectInfo.contains("22"));
     }
 }

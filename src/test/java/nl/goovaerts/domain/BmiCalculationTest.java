@@ -7,6 +7,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.math.BigDecimal;
+
 class BmiCalculationTest {
 
     private DefaultBmiCalculation bmiCalculation;
@@ -20,7 +22,7 @@ class BmiCalculationTest {
     void shouldReturnExpectedBmiResponse() {
         BmiRequest request = DataFixtures.bmiRequestForAgeLengthWeight(45, 1.75, 67.375);
         BmiResponse response = bmiCalculation.process(request);
-        Assertions.assertEquals(22d, response.getValue());
+        Assertions.assertEquals(BigDecimal.valueOf(22d), response.getValue());
     }
 
     @Test
@@ -39,5 +41,11 @@ class BmiCalculationTest {
     void shouldRejectRequestWhenLengthLessThan1() {
         BmiRequest request = DataFixtures.bmiRequestForAgeLengthWeight(2, 0, 1);
         Assertions.assertThrows(IllegalArgumentException.class, () -> bmiCalculation.process(request));
+    }
+
+    @Test
+    void shouldRoundValueAtOneDecimal() {
+        BmiRequest request = DataFixtures.bmiRequestForAgeLengthWeight(20, 1.73, 64.5);
+        Assertions.assertEquals(BigDecimal.valueOf(21.6), bmiCalculation.process(request).getValue());
     }
 }

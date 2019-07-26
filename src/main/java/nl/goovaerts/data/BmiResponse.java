@@ -3,18 +3,19 @@ package nl.goovaerts.data;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.math.BigDecimal;
 import java.util.Objects;
 
 public final class BmiResponse {
 
-    private final double value;
+    private final BigDecimal value;
 
     @JsonCreator
-    public BmiResponse(@JsonProperty("value") double value) {
+    public BmiResponse(@JsonProperty("value") BigDecimal value) {
         this.value = value;
     }
 
-    public double getValue() {
+    public BigDecimal getValue() {
         return value;
     }
 
@@ -27,7 +28,7 @@ public final class BmiResponse {
             return false;
         }
         BmiResponse that = (BmiResponse) o;
-        return Double.compare(that.value, value) == 0;
+        return Objects.equals(value, that.value);
     }
 
     @Override

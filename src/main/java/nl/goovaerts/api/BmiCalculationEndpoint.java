@@ -22,4 +22,6 @@ class BmiCalculationEndpoint {
     BmiResponse calculate(@RequestBody BmiRequest request) {
         return bmiCalculation.process(request);
     }
+
+    // TODO handle exceptions
 }
