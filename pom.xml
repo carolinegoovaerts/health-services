@@ -6,7 +6,7 @@
     <groupId>nl.goovaerts.demo</groupId>
     <artifactId>health-services</artifactId>
     <version>1.0.0-SNAPSHOT</version>
-    <name>Calculator</name>
+    <name>Health Services</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
