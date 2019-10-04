@@ -1,7 +1,6 @@
 package nl.goovaerts.orm;
 
 import nl.goovaerts.domain.Gender;
-
 import nl.goovaerts.domain.Person;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -22,16 +21,15 @@ class PersonRepositoryIT {
 
     @Test
     void shouldReadAndWriteWithDatabase() {
-        Person person = aPerson();
+        // Arrange
+        LocalDate farPastDate = LocalDate.MIN;
+        Person person = Person.create("C", "G", farPastDate, Gender.FEMALE);
 
-        Person writtenPerson = repository.save(person);
-        Optional<Person> readPerson = repository.findById(writtenPerson.getId());
+        // Act
+        Person persistedPerson = repository.save(person);
+        Optional<Person> optionalPerson = repository.findById(persistedPerson.getId());
 
-        Assertions.assertTrue(readPerson.isPresent());
-        Assertions.assertEquals(person, readPerson.get());
-    }
-
-    private static Person aPerson() {
-        return Person.create("c", "g", LocalDate.MIN, Gender.FEMALE);
+        // Assert
+        Assertions.assertEquals(Optional.of(person), optionalPerson);
     }
 }

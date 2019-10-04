@@ -17,7 +17,7 @@ public final class Person {
     private LocalDate dateOfBirth;
     private Gender gender;
 
-    // Hide constructor
+    // Hide constructor //TODO why?
     private Person(String firstName, String lastName, LocalDate dateOfBirth, Gender gender) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -67,5 +67,16 @@ public final class Person {
     @Override
     public int hashCode() {
         return Objects.hash(firstName, lastName, dateOfBirth, gender);
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", dateOfBirth=" + dateOfBirth +
+                ", gender=" + gender +
+                '}';
     }
 }
