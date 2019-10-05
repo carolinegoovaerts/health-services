@@ -48,6 +48,8 @@ class DefaultBmiCalculationTest {
     @Test
     void shouldRoundValueAtOneDecimal() {
         BmiRequest request = DataFixtures.bmiRequestForAgeLengthWeight(20, 1.73, 64.5);
-        Assertions.assertEquals(BigDecimal.valueOf(21.6), bmiCalculation.process(request).getValue());
+        BigDecimal bmi = bmiCalculation.process(request).getValue();
+
+        Assertions.assertEquals(BigDecimal.valueOf(21.6), bmi);
     }
 }
