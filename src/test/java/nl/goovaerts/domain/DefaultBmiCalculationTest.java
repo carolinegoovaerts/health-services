@@ -36,13 +36,15 @@ class DefaultBmiCalculationTest {
     @Test
     void shouldRejectRequestWhenWeightLessThan1() {
         BmiRequest request = DataFixtures.bmiRequestForAgeLengthWeight(2, 1, 0);
-        Assertions.assertThrows(IllegalArgumentException.class, () -> bmiCalculation.process(request));
+        Assertions.assertThrows(IllegalArgumentException.class,
+                () -> bmiCalculation.process(request));
     }
 
     @Test
     void shouldRejectRequestWhenLengthLessThan1() {
         BmiRequest request = DataFixtures.bmiRequestForAgeLengthWeight(2, 0, 1);
-        Assertions.assertThrows(IllegalArgumentException.class, () -> bmiCalculation.process(request));
+        Assertions.assertThrows(IllegalArgumentException.class,
+                () -> bmiCalculation.process(request));
     }
 
     @Test
