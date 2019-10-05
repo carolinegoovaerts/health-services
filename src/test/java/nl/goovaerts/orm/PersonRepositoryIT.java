@@ -10,6 +10,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.time.LocalDate;
+import java.time.Month;
 import java.util.Optional;
 
 @ExtendWith(SpringExtension.class)
@@ -22,14 +23,14 @@ class PersonRepositoryIT {
     @Test
     void shouldReadAndWriteWithDatabase() {
         // Arrange
-        LocalDate farPastDate = LocalDate.MIN;
-        Person person = Person.create("C", "G", farPastDate, Gender.FEMALE);
+        LocalDate dateOfBirth = LocalDate.of(1935, Month.JANUARY, 8);
+        Person elvis = Person.create("Elvis", "Presley", dateOfBirth, Gender.MALE);
 
         // Act
-        Person persistedPerson = repository.save(person);
-        Optional<Person> optionalPerson = repository.findById(persistedPerson.getId());
+        Person elvisJustWritten = repository.save(elvis);
+        Optional<Person> elvisJustRead = repository.findById(elvisJustWritten.getId());
 
         // Assert
-        Assertions.assertEquals(Optional.of(person), optionalPerson);
+        Assertions.assertEquals(Optional.of(elvis), elvisJustRead);
     }
 }
