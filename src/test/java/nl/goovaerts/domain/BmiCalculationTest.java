@@ -29,8 +29,8 @@ class BmiCalculationTest {
     @Test
     void shouldRejectRequestWhenAgeLessThan2() {
         BmiRequest request = DataFixtures.bmiRequestForAgeLengthWeight(1, 1.75, 60);
-
-        Assertions.assertThrows(IllegalArgumentException.class, () -> bmiCalculation.process(request));
+        Assertions.assertThrows(IllegalArgumentException.class,
+                () -> bmiCalculation.process(request));
     }
 
     @Test

@@ -13,25 +13,25 @@ public class DefaultBmiCalculation implements BmiCalculation {
 
     private static final MathContext PRECISION_3_HALF_UP = new MathContext(3, RoundingMode.HALF_UP);
 
-    private static double determineBmiFor(BmiRequest request) {
-        final double weight = request.getWeight();
-        final double length = request.getLength();
-        final int age = request.getAge();
-
-        if (age < 2 || weight < 1 || length < 1) {
-            throw new IllegalArgumentException();
-        }
-
-        return weight / (length * length);
-    }
-
     private static BigDecimal rounded(double bmi) {
         return BigDecimal.valueOf(bmi).round(PRECISION_3_HALF_UP);
     }
 
+    private static void validate(double weight, double length, int age) {
+        if (age < 2 || weight < 1 || length < 1) {
+            throw new IllegalArgumentException();
+        }
+    }
+
     @Override
     public BmiResponse process(BmiRequest request) {
-        double bmi = determineBmiFor(request);
-        return new BmiResponse(rounded(bmi));
+        final double weight = request.getWeight();
+        final double length = request.getLength();
+        final int age = request.getAge();
+
+        validate(weight, length, age);
+        BigDecimal bmi = rounded(weight / (length * length));
+
+        return new BmiResponse(bmi);
     }
 }
