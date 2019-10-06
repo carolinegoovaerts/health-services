@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 import java.time.Month;
+import java.util.Collections;
+import java.util.Set;
 
 class PersonTest {
 
@@ -13,7 +15,7 @@ class PersonTest {
     void shouldCreateExpectedObject() {
         LocalDate dateOfBirth = LocalDate.of(2019, Month.APRIL, 1);
 
-        Person person = Person.create("c", "g", dateOfBirth, Gender.FEMALE);
+        Person person = Person.full("c", "g", dateOfBirth, Gender.FEMALE);
 
         Assertions.assertEquals("c", person.getFirstName());
         Assertions.assertEquals("g", person.getLastName());
@@ -24,7 +26,16 @@ class PersonTest {
     @Test
     void shouldFollowEqualsContract() {
         EqualsVerifier.forClass(Person.class)
-                .withIgnoredFields("id")
+                .withIgnoredFields("id", "healthStatuses")
+                .withPrefabValues(Set.class, red(), black())
                 .verify();
+    }
+
+    private static Set<HealthStatus> red() {
+        return Collections.emptySet();
+    }
+
+    private static Set<HealthStatus> black() {
+        return Set.of(HealthStatus.ofDateLengthAndWeight(LocalDate.MIN, 1, 1));
     }
 }
