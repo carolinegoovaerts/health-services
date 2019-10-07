@@ -11,7 +11,7 @@ import java.math.BigDecimal;
 
 class DefaultBmiCalculationTest {
 
-    private DefaultBmiCalculation bmiCalculation;
+    private BmiCalculation bmiCalculation;
 
     @BeforeEach
     void setUp() {
