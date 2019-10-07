@@ -22,8 +22,6 @@ class ApplicationUI {
 
     @BeforeAll
     static void setUpClass() {
-        // NOTE requires locally installed browser
-        // See also https://github.com/bonigarcia/webdrivermanager-examples
         WebDriverManager.firefoxdriver().setup();
     }
 
