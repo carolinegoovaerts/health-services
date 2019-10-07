@@ -35,7 +35,4 @@ class ApplicationE2E {
 
         Assertions.assertNotNull(response.getBody());
     }
-
-    //TODO verify contents of <h1/> using Webdriver
-
 }
