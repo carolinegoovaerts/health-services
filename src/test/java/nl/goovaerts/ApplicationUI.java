@@ -39,11 +39,9 @@ class ApplicationUI {
 
     @Test
     void shouldDisplayCorrectHeaderText() {
-        String url = String.format("http://localhost:%s/", port);
-
-        driver.get(url);
-
+        driver.get(String.format("http://localhost:%s/", port));
         WebElement h1 = driver.findElement(By.tagName("h1"));
+
         Assertions.assertEquals("Health Services", h1.getText());
     }
 }
