@@ -43,7 +43,7 @@ class PersonRepositoryIT {
     }
 
     @Test
-    void x() {
+    void shouldStorePersonWithHealthStatus() {
         LocalDate farPastDate = LocalDate.MIN;
         double weight = 117.9;
         double length = 1.83;
