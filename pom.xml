@@ -14,7 +14,7 @@
         <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
         <maven-failsafe-plugin.version>2.22.2</maven-failsafe-plugin.version>
         <junit.jupiter.version>5.5.2</junit.jupiter.version>
-        <spring-boot.version>2.1.9.RELEASE</spring-boot.version>
+        <spring-boot.version>2.5.12</spring-boot.version>
         <equalsverifier.version>3.1.10</equalsverifier.version>
         <h2.version>1.4.199</h2.version>
     </properties>
